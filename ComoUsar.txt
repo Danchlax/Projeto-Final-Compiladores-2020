@@ -1,0 +1,62 @@
+Um programa na linguagem AsciiDL sempre se inicia com a palavra-chave start e termina com end
+Ex:
+start
+
+(comandos aqui)
+
+end
+
+Pode-se realizar declarações de variáveis a qualquer momento do corpo do programa. Os tipos disponíveis são macro(cadeia de caracteres), inteiro e output. Nas declarações de output, deve-se determinar uma dimensão para o desenho com a estrutura [TamanhoX:TamanhoY]
+Ex:
+inteiro n, m
+macro macro1 
+macro macro2, macro 3
+output o1, o2 [10:20]
+
+Atribuições sao feitas através do operador = e estão disponíveis para os tipos inteiro e macro
+Ex:
+n = 2
+m = n
+macro1 = "Hello"
+macro2 = " World!"
+macro3 = macro1
+
+É possível concatenar cadeias e macros através do comando add to. A cadeia resultante é armazenada no macro do segundo argumento. O primeiro argumento pode ser um macro ou uma cadeia
+Ex:
+add macro2 to macro1
+add " World!" to macro3
+
+A função setbackground pode ser utilizada em um output para preencher todos os espaços em branco contidos nele com um caractere de sua escolha.
+Ex:
+setbackground o1, "#"
+
+Existem 4 funções para impressão em output em AsciiDL, cada um com propriedades específicas. Todas eles podem ser complementadas com o parâmetro times, para múltiplas impressões.
+Os comandos de impressão são:
+print -> Imprime um macro em um output, sem pular linha
+Ex:
+print macro1 on o1
+print macro1 on o1 3 times (imprime 3 vezes sem pular linha)
+
+println -> Imprime um macro em um output e em seguida pula uma linha
+Ex:
+println macro1 on o1
+println macro1 on o1 3 times (imprime 3 vezes, pulando uma linha depois de cada operação)
+
+printcenter -> Imprime um macro no centro da linha atual do output e em seguida pula uma linha
+Ex:
+printcenter "ola" on o1
+printcenter macro3 on o1 3 times (imprime 3 vezes no centro da linha, pulando uma linha depois de cada operação)
+
+printendln -> Imprime um macro, pulando uma linha somente após todas as operações do parâmetro times terminarem
+Ex:
+printendln macro3 on o1 (funcionalmente idêntico ao println)
+printendln macro3 on o1 3 times (imprime 3 vezes seguidas, pulando uma linha depois da terceira impressão)
+
+Por último, o comando for pode ser utilizado para a repetição fácil de trechos de código
+Ex:
+for i in [1:7] (range de 1 até 7, logo o código contido no comando for ocorrerá 7 vezes)
+(comandos)
+endfor
+
+
+
