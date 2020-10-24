@@ -1,0 +1,22 @@
+//Caso de teste - erros semanticos - declarando dois macros com o mesmo nome
+
+start
+
+macro m1, m2, m1
+//   Erro aqui^
+macro m2
+//     ^Erro aqui
+output o1
+
+setbackground o1, "@"
+
+m1 = "testando..."
+m2 = "ola"
+
+add m2 to m1
+
+println m1 on o1 2 times
+
+print m2 on o1
+
+end

@@ -1,0 +1,24 @@
+//Caso de teste - erros semanticos - expressao nao inteira em estrutura de dimensao
+
+start
+
+macro m1, m2
+inteiro n
+
+n = 2
+
+output o1 [m1:n]
+//Erro aqui^
+
+setbackground o1, "@"
+
+m1 = "testando..."
+m2 = "ola"
+
+add m2 to m1
+
+println m1 on o1 n times
+
+print m2 on o1
+
+end

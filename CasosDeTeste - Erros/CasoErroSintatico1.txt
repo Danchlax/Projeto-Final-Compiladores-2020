@@ -1,0 +1,18 @@
+//Caso de teste - erros sintaticos - faltando argumento no setbackground
+
+start
+
+macro m1, m2
+output o1
+
+setbackground "@"
+//erro aqui ^
+m1 = "testando..."
+m2 = "ola"
+
+add 2 to m1
+
+println m1 on o1 2 times
+print m2 on o1
+
+end

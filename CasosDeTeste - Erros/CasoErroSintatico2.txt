@@ -1,0 +1,18 @@
+//Caso de teste - erros sintaticos - utilizando inteiro na estrutura add
+
+start
+
+macro m1, m2
+output o1
+
+setbackground o1, "@"
+
+m1 = "testando..."
+m2 = "ola"
+
+add 2 to m1
+//  ^Erro aqui
+println m1 on o1 2 times
+print m2 on o1
+
+end

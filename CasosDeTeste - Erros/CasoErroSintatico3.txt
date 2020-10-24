@@ -1,0 +1,19 @@
+//Caso de teste - erros sintaticos - utilizando cadeia na estrutura times
+
+start
+
+macro m1, m2
+output o1
+
+setbackground o1, "@"
+
+m1 = "testando..."
+m2 = "ola"
+
+add m2 to m1
+
+println m1 on o1 "20" times
+       //Erro aqui^
+print m2 on o1
+
+end
