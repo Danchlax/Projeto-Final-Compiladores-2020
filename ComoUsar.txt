@@ -52,11 +52,15 @@ Ex:
 printendln macro3 on o1 (funcionalmente idêntico ao println)
 printendln macro3 on o1 3 times (imprime 3 vezes seguidas, pulando uma linha depois da terceira impressão)
 
-Por último, o comando for pode ser utilizado para a repetição fácil de trechos de código
+O comando for pode ser utilizado para a repetição fácil de trechos de código
 Ex:
 for i in [1:7] (range de 1 até 7, logo o código contido no comando for ocorrerá 7 vezes)
 (comandos)
 endfor
+
+Por último, para compilar um programa escrito na linguagem AsciiDL utilizando o compilador contido neste repositório, basta rodar o comando:
+java -jar Compilador.java "meuprograma.txt"
+(note que o compilador e o programa devem estar no mesmo diretório, senão deve-se utilizar o caminho completo dos dois)
 
 
 
