@@ -1,0 +1,71 @@
+Roger Sigolo Junior 728340
+Danilo Otávio Corrêa Escanhoela 743526
+
+Requer Java
+Requer Apache Netbeans
+Requer Antlr4 4.8
+
+Para compilar basta abrir o projeto no NetBeans e instalar manualmente a dependência Antlr4-4.8.jar, depois buildar o projeto.
+Após compilar, para executar o AsciiDL-1.0-SNAPSHOT-jar-with-dependencies.jar na pasta target que foi gerada ao compilar com o segunte comando no terminal:
+
+cd ...NetBensProjects\AsciiDL\target
+java -jar AsciiDL-1.0-SNAPSHOT-jar-with-dependencies.jar entrada.txt
+
+Porém é importante setar os caminhos corretamente caso o arquivo de entrada não esteja na mesma pasta que o compilador.
+
+Para criar o projeto desde o começo, é necessário adicionar no pom.xml do projeto o seguinte após <packaging>jar</packaging>
+<build>
+        <plugins>
+            <plugin>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr4-maven-plugin</artifactId>
+                <version>4.8</version>
+		<configuration>
+                     <visitor>true</visitor>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>antlr</id>
+                        <goals>
+                            <goal>antlr4</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.mycompany.asciidl.Main</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4</artifactId>
+            <version>4.8</version>
+        </dependency>
+    </dependencies>
+
+Depois certifique-se que o arquivo AsciiDL.g4 está em um diretório do projeto no formato: antlr4\caminho de diretórios igual do Main.java
+Instale a dependência do antlr4-4.8.jar e realize o build do projeto.
+
+
+
