@@ -1,0 +1,47 @@
+//exemplo de programa na linguagem de desenho ASCII
+
+start
+
+output A1, A2, A3 [25:7]       //Cria três arquivos de texto chamados A1, A2 e A3 para imprimir caracteres, com dimensao 20/7
+macro M1, M2, M3          //cria tres strings vazias chamadas M1, M2 e M3
+inteiro N, M, i                //cria uma variavel inteira
+
+M1 = "@-_-@"          //coloca a string @-_-@ em M1
+M2 = (5,"bla")        //coloca em M2 a string Bla 5 vezes
+M3 = "  |  "
+N = 2
+M = N
+
+setbackground A3, "@"
+
+add M1 to M2          //concatena M1 a M2
+add "fim" to M2       //concatena fim a M2
+
+println M1 on A1             //imprime M1 em A1 e pula uma linha
+println M3 on A1 2 times
+println " / \\" on A1
+
+println M2 on A2                  //imprime M2 em A2 e pula uma linha
+println (2, "fim") on A2 3 times    //imprime fim 6 vezes em A2
+
+println "/" on A3 3 times
+println "a" on A3
+println "/" on A3 3 times
+
+end
+
+//Resultado esperado em A1
+//@-_-@   
+//  |  
+//  |  
+// / \ 
+ 
+//Resultado esperado em A2
+//BlaBlaBlaBlaBla@-_-@fim
+//fimfimfimfimfimfim
+
+//Resultado esperado em A3
+// ///@@@@@@@@@@@@@@@@@
+// a@@@@@@@@@@@@@@@@@@@
+// ///@@@@@@@@@@@@@@@@@
+
