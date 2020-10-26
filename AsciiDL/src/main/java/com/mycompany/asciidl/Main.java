@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
+import java.io.PrintWriter;
 
 public class Main {
     
@@ -40,10 +41,16 @@ public class Main {
             //Imprime no terminal os erros semanticos encontrados, se existirem
             if (AsciiDLSemanticoUtils.errosSemanticos.size() > 0){
                 AsciiDLSemanticoUtils.errosSemanticos.forEach((s) -> System.out.println(s)); 
+                System.out.println("Fim da compilacao");
             }
-            
-            System.out.println("Fim da compilacao");
-            
+            else{
+            //instancia o gerador de codigo
+            AsciiDLGerador gera = new AsciiDLGerador();
+            gera.visitPrograma(arvore);
+            try(PrintWriter output = new PrintWriter(args[1])){
+                output.print(gera.saida.toString());      
+            }
+            }
         }catch(IOException ex)
         {
             System.out.println("Nao foi possivel abrir o arquivo");
