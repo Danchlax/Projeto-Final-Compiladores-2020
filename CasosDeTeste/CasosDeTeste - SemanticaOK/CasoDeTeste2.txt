@@ -2,23 +2,23 @@
 
 start
 
-int Nrows, Ncols, i
+inteiro Nrows, Ncols, i
 macro Row1, Row2
 
 Nrows = 4
 Ncols = 6
 
-output Tabela [Nrows*3,Ncols*10]
+output Tabela [Nrows*3:Ncols*10]
 
-Row1 = ---------
-Row2 = |       |
+Row1 = "---------"
+Row2 = "|       |"
 
 for i in [1:Nrows]
-printendln Row1 Ncols times
-printendln Row2 Ncols times
+printendln Row1 on Tabela Ncols times
+printendln Row2 on Tabela Ncols times
 endfor
 
-printendln Row1 Ncols times
+printendln Row1 on Tabela Ncols times
 
 end
 
