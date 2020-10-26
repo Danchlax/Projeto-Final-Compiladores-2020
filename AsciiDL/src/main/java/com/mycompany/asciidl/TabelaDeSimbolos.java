@@ -9,10 +9,15 @@ public class TabelaDeSimbolos {
     class EntradaTabelaDeSimbolos {
         String nome;
         String tipo;
+        int linha;
 
         private EntradaTabelaDeSimbolos(String nome, String tipo) {
             this.nome = nome;
             this.tipo = tipo;
+        }
+        private EntradaTabelaDeSimbolos(String nome, int linha){
+            this.nome = nome;
+            this.linha = linha;
         }
     }
     
@@ -26,6 +31,9 @@ public class TabelaDeSimbolos {
     public void adicionar(String nome, String tipo) {
         tabela.put(nome, new EntradaTabelaDeSimbolos(nome, tipo));
     }
+    public void adicionar(String nome, int linha){
+        tabela.put(nome, new EntradaTabelaDeSimbolos(nome,linha));
+    }
     //retorna se a variavel existe na tabela ou nao
     public boolean existe(String nome) {
         return tabela.containsKey(nome);
@@ -33,5 +41,14 @@ public class TabelaDeSimbolos {
     //retorna o tipo da entrada
     public String verificar(String nome) {
         return tabela.get(nome).tipo;
+    }
+    public int verificarLinha(String nome){
+        return tabela.get(nome).linha;
+    }
+    public void modificar(String nome, String tipo){
+        tabela.replace(nome, new EntradaTabelaDeSimbolos(nome,tipo));
+    }
+    public void modificar(String nome,int linha){
+        tabela.replace(nome, new EntradaTabelaDeSimbolos(nome,linha));
     }
 }
